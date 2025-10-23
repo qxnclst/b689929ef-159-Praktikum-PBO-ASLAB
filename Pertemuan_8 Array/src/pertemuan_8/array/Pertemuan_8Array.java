@@ -68,7 +68,7 @@ public class Pertemuan_8Array {
 		    break;
                     
                 case 3:
-                    System.out.print("Masukkan judul bulu yang ingin dipinjam: ");
+                    System.out.print("Masukkan judul buku yang ingin dipinjam: ");
                     String pinjam = input.nextLine();
                     boolean ada = false;
 
