@@ -68,20 +68,67 @@ public class Pertemuan_8Array {
 		    break;
                     
                 case 3:
-                    System.out.print("Masukkan judul Book yang ingin dipinjam: ");
+                    System.out.print("Masukkan judul bulu yang ingin dipinjam: ");
                     String pinjam = input.nextLine();
                     boolean ada = false;
-                    
-                    // Lakukan logika untuk meminjam buku disini
-                    
+
+                    for (Book b : koleksi) {
+                        if (b.judul.equalsIgnoreCase(pinjam)) {
+                            ada = true;
+                            
+                            if (!b.isBooked) {
+                                b.isBooked = true;
+                                System.out.println("Buku berhasil dipinjam");
+                                b.tampilkanDataBuku();
+                            } 
+                            
+                            else {
+                                System.out.println("Buku tersebut sedang dipinjam!");
+                            }
+                            
+                            break;
+                        }
+                    }
+
+                    if (!ada) {
+                        System.out.println("Buku tidak ditemukan");
+                    }
+
+                    System.out.println("\n Tekan enter untuk melanjutkan...");
+                    input.nextLine();
                     break;
+
                 case 4:
                     System.out.print("Masukkan judul Book yang dikembalikan: ");
                     String kembali = input.nextLine();
                     boolean ditemukanKembali = false;
-                    
-                    // Silakan masukan logika untuk mengembalikan buku disini
-                    
+
+                    for (Book b : koleksi) {
+                        
+                        if (b.judul.equalsIgnoreCase(kembali)) {
+                            ditemukanKembali = true;
+                            
+                            if (b.isBooked) {
+                                b.isBooked = false;
+                                System.out.println("Buku berhasil dikembalikan:");
+                                b.tampilkanDataBuku();
+                                
+                            }
+                            
+                            else {
+                                System.out.println("Buku tersebut belum dipinjam");
+                            }
+                            
+                            break;
+                        }
+                    }
+
+                    if (!ditemukanKembali) {
+                        System.out.println("Buku tidak ditemukan");
+                    }
+
+                    System.out.println("\n Tekan enter untuk melanjutkan...");
+                    input.nextLine();
                     break;
 
                 case 0:
